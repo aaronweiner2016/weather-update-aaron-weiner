@@ -90,7 +90,7 @@ body {
 
 #uv-box {
     height: 35px;
-    width: 35px;
+    width: 40px;
     border: solid black 2px;
     border-radius: 5px;
     display: flex;
@@ -116,5 +116,10 @@ body {
     min-width: 150px;
     height: 200px;
     border-radius: 8px;
-    padding: 5px;
+    padding: 3px;
+    background-color: rgb(64, 93, 255);
+}
+
+.boxes h5, .boxes h4 {
+    color: white;
 }

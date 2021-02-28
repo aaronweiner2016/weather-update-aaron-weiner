@@ -22,6 +22,18 @@ var iconThree = document.querySelector("#icon-three");
 var iconFour = document.querySelector("#icon-four");
 var iconFive = document.querySelector("#icon-five");
 
+var tempOne = document.querySelector("#temp-one");
+var tempTwo = document.querySelector("#temp-two");
+var tempThree = document.querySelector("#temp-three");
+var tempFour = document.querySelector("#temp-four");
+var tempFive = document.querySelector("#temp-five");
+
+var humidOne = document.querySelector("#humid-one");
+var humidTwo = document.querySelector("#humid-two");
+var humidThree = document.querySelector("#humid-three");
+var humidFour = document.querySelector("#humid-four");
+var humidFive = document.querySelector("#humid-five");
+
 getApi("charlotte")
 
 function getApi(city) {
@@ -37,7 +49,7 @@ function getApi(city) {
         .then(function (data) {
             console.log(data);
 
-            var requestTwoUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${data.city.coord.lat}&lon=${data.city.coord.lon}&appid=0cff65797cba31097493b2ee802ba069`;
+            var requestTwoUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${data.city.coord.lat}&lon=${data.city.coord.lon}&units=imperial&appid=0cff65797cba31097493b2ee802ba069`;
 
             fetch(requestTwoUrl)
                 .then(function (response) {
@@ -100,28 +112,35 @@ function getApi(city) {
 
                     var dOne = new Date(dataTwo.daily[1].dt * 1000);
                     var dateOneCr = document.createElement("h3");
+                    dateOne.innerHTML = "";
                     dateOneCr.textContent = dOne.toDateString();
                     dateOne.append(dateOneCr);
 
                     var dTwo = new Date(dataTwo.daily[2].dt * 1000);
                     var dateTwoCr = document.createElement("h3");
+                    dateTwo.innerHTML = "";
                     dateTwoCr.textContent = dTwo.toDateString();
                     dateTwo.append(dateTwoCr);
 
                     var dThree = new Date(dataTwo.daily[3].dt * 1000);
                     var dateThreeCr = document.createElement("h3");
+                    dateThree.innerHTML = "";
                     dateThreeCr.textContent = dThree.toDateString();
                     dateThree.append(dateThreeCr);
 
                     var dFour = new Date(dataTwo.daily[4].dt * 1000);
                     var dateFourCr = document.createElement("h3");
+                    dateFour.innerHTML = "";
                     dateFourCr.textContent = dFour.toDateString();
                     dateFour.append(dateFourCr);
 
                     var dFive = new Date(dataTwo.daily[5].dt * 1000);
                     var dateFiveCr = document.createElement("h3");
+                    dateFive.innerHTML = "";
                     dateFiveCr.textContent = dFive.toDateString();
                     dateFive.append(dateFiveCr);
+
+                    //--------------------------
 
                     var weatherIconOne = document.createElement("img");
                     weatherIconOne.setAttribute("src", `http://openweathermap.org/img/wn/${dataTwo.daily[1].weather[0].icon}@2x.png`)
@@ -147,6 +166,61 @@ function getApi(city) {
                     weatherIconFive.setAttribute("src", `http://openweathermap.org/img/wn/${dataTwo.daily[4].weather[0].icon}@2x.png`)
                     iconFive.innerHTML = "";
                     iconFive.append(weatherIconFive);
+
+                    //----------------------------------
+
+                    var tempOneCr = document.createElement("h5");
+                    tempOne.innerHTML = "Temperature: ";
+                    tempOneCr.textContent = dataTwo.daily[1].temp.day;
+                    tempOne.append(tempOneCr);
+
+                    var tempTwoCr = document.createElement("h5");
+                    tempTwo.innerHTML = "Temperature: ";
+                    tempTwoCr.textContent = dataTwo.daily[2].temp.day;
+                    tempTwo.append(tempTwoCr);
+
+                    var tempThreeCr = document.createElement("h5");
+                    tempThree.innerHTML = "Temperature: ";
+                    tempThreeCr.textContent = dataTwo.daily[3].temp.day;
+                    tempThree.append(tempThreeCr);
+
+                    var tempFourCr = document.createElement("h5");
+                    tempFour.innerHTML = "Temperature: ";
+                    tempFourCr.textContent = dataTwo.daily[4].temp.day;
+                    tempFour.append(tempFourCr);
+
+                    var tempFiveCr = document.createElement("h5");
+                    tempFive.innerHTML = "Temperature: ";
+                    tempFiveCr.textContent = dataTwo.daily[5].temp.day;
+                    tempFive.append(tempFiveCr);
+
+                    //------------------------------
+
+                    var humidOneCr = document.createElement("h5");
+                    humidOne.innerHTML = "Humidity: ";
+                    humidOneCr.textContent = dataTwo.daily[1].humidity;
+                    humidOne.append(humidOneCr);
+
+                    var humidTwoCr = document.createElement("h5");
+                    humidTwo.innerHTML = "Humidity: ";
+                    humidTwoCr.textContent = dataTwo.daily[2].humidity;
+                    humidTwo.append(humidTwoCr);
+
+                    var humidThreeCr = document.createElement("h5");
+                    humidThree.innerHTML = "Humidity: ";
+                    humidThreeCr.textContent = dataTwo.daily[3].humidity;
+                    humidThree.append(humidThreeCr);
+
+                    var humidFourCr = document.createElement("h5");
+                    humidFour.innerHTML = "Humidity: ";
+                    humidFourCr.textContent = dataTwo.daily[4].humidity;
+                    humidFour.append(humidFourCr);
+
+                    var humidFiveCr = document.createElement("h5");
+                    humidFive.innerHTML = "Humidity: ";
+                    humidFiveCr.textContent = dataTwo.daily[5].humidity;
+                    humidFive.append(humidFiveCr);
+
 
                 })
         })
