@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400&family=Merriweather:wght@700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="./assets/style.css" />
+</head>
+
+<body>
+    <div id="title">
+        <h1>Weather Dashboard</h1>
+    </div>
+
+    <div id="outline">
+
+        <div id="left">
+            <div class="input-group input-group-lg">
+                <div class="input-group-prepend">
+                    <span style="font-size: 20px;">Search for a City:</span>
+                </div>
+                <input type="text" id="input" class="form-control" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-lg" style="height: 30px; width: 200px;">
+                <button id="search">Search</button>
+            </div>
+
+            <ul></ul>
+
+        </div>
+
+
+
+        <div id="right">
+
+            <div id="top">
+                <div id="create-space">
+                    <h1 id="city-date"></h1>
+                    <h1 id="date"></h1>
+                    <div id="icon"></div>
+                </div>
+                </br>
+                </br>
+
+                <h3 id="temperature">Temperature: </h3>
+                
+                </br>
+
+                <h3 id="humidity">Humidity: </h3>
+
+                </br>
+
+                <h3 id="wind-speed">Wind Speed: </h3>
+
+                </br>
+
+                <h3 id="uv">UV Index: <div id="uv-box"></div>
+
+                </h3>
+
+
+            </div>
+
+            <div id="bottom">
+
+                <h1 id="five-day-title">5-Day Forecast:</h1>
+
+                <div id="five-day-boxes">
+
+                    <div class="boxes" id="box-one">
+
+                        <h4 id="date-one"></h4>
+                        <div id="icon-one"></div>
+
+                    </div>
+
+                    <div class="boxes" id="box-two">
+                        
+                        <h4 id="date-two"></h4>
+                        <div id="icon-two"></div>
+
+                    </div>
+
+                    <div class="boxes" id="box-three">
+
+                        <h4 id="date-three"></h4>
+                        <div id="icon-three"></div>
+
+                    </div>
+
+                    <div class="boxes" id="box-four">
+
+                        <h4 id="date-four"></h4>
+                        <div id="icon-four"></div>
+
+                    </div>
+
+                    <div class="boxes" id="box-five">
+
+                        <h4 id="date-five"></h4>
+                        <div id="icon-five"></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+    </div>
+
+
+
+
+
+
+    <script src="./assets/script.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,120 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+}
+
+#title {
+    background-color: cornflowerblue;
+    height: 150px;
+    width: 100%;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#title h1 {
+    font-size: 50px;
+}
+
+#outline {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    
+}
+
+#left {
+    width: 25%;
+    border: 2px black solid;
+    height: 600px;
+    margin-left: 25px;
+    margin-right: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+#right {
+    width: 65%;
+    height: 600px;
+}
+
+#top {
+    border: solid grey 2px;
+    padding: 30px;
+}
+
+#bottom {
+    margin-top: 30px;
+}
+
+#create-space {
+    width: 700px;
+    height: 50px;    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#city-date {
+    width: 150px;
+    height: 50px;
+    
+}
+
+#date {
+    width: 235px;
+    height: 50px;
+    
+}
+
+#icon {
+    width: 200px;
+    height: 100px;
+    padding-bottom: 10px;
+}
+
+#uv {
+    width: 130px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#uv-box {
+    height: 35px;
+    width: 35px;
+    border: solid black 2px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#five-day-title {
+    min-width: 500px;
+    width: 40px;
+}
+
+#five-day-boxes {
+    min-width: 1105px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.boxes {
+    border: black solid 2px;
+    margin-top: 20px;
+    min-width: 150px;
+    height: 200px;
+    border-radius: 8px;
+    padding: 5px;
+}
