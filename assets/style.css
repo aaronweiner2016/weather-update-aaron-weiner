@@ -4,22 +4,23 @@
 }
 
 body {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
 }
 
 #title {
-    background-color: cornflowerblue;
+    background-color: rgb(73, 71, 71);
     height: 150px;
     width: 100%;
-    margin-bottom: 40px;
+    
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 #title h1 {
-    font-size: 50px;
+    font-size: 70px;
+    color: white;
 }
 
 #outline {
@@ -27,31 +28,36 @@ body {
     height: 100vh;
     display: flex;
     flex-direction: row;
-    
+    justify-content: space-between;
 }
 
 #left {
-    width: 25%;
-    border: 2px black solid;
-    height: 600px;
-    margin-left: 25px;
-    margin-right: 100px;
+    width: 23%;    
+    height: 620px;   
     display: flex;
     justify-content: center;
 }
 
+ul {
+    display: flex;
+    flex-direction: column;
+}
+
 #right {
-    width: 65%;
-    height: 600px;
+    width: 75%;
+    margin-top: 20px;   
 }
 
 #top {
     border: solid grey 2px;
     padding: 30px;
+    border-right: transparent;
+    border-radius: 4px;
 }
 
 #bottom {
     margin-top: 30px;
+    margin-right: 30px;
 }
 
 #create-space {
@@ -63,15 +69,14 @@ body {
 }
 
 #city-date {
-    width: 150px;
+    /* width: 300px; */
     height: 50px;
     
 }
 
 #date {
-    width: 235px;
-    height: 50px;
-    
+    width: 250px;
+    height: 50px;    
 }
 
 #icon {
@@ -104,22 +109,82 @@ body {
 }
 
 #five-day-boxes {
-    min-width: 1105px;
+    min-width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .boxes {
     border: black solid 2px;
     margin-top: 20px;
-    min-width: 150px;
+    min-width: 170px;
     height: 200px;
-    border-radius: 8px;
+    border-radius: 4px;
     padding: 3px;
-    background-color: rgb(64, 93, 255);
+    background-color: rgb(67, 95, 250);
 }
 
-.boxes h5, .boxes h4 {
+.font {
     color: white;
+    font-size: 20px;
+}
+
+ul button {
+    width: 95%;
+    height: 50px;
+    padding-left: 20px;
+    font-size: 25px;
+    font-weight: lighter;
+    margin-left: 8px;
+    border: solid .5px rgb(199, 198, 198);
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    background-color: white;
+}
+
+ul button:hover {
+    opacity: .7;
+}
+
+.input-group {
+    min-width: 100%;
+    min-height: 100%;
+    background-color: rgb(228, 228, 228);
+    padding-top: 8px;
+    border-radius: 4px;
+}
+
+
+#search {
+    height: 33px;
+    width: 33px;
+    margin-left: 2px;
+    border-radius: 4px;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    background-color: rgb(67, 95, 250);
+}
+
+#search:hover {
+    opacity: .7;
+}
+
+#input {
+    height: 30px; 
+    min-width: 260px;
+    margin-left: 8px; 
+    margin-top: 7px;
+    border-radius: 4px;
+}
+
+#input:hover {
+    opacity: .7;
+}
+
+.icon img {
+    height: 70px;
+    width: 70px;
+    margin-bottom: 15px;
+    margin-top: 15px;
 }
