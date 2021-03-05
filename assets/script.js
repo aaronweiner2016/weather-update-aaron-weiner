@@ -2,7 +2,6 @@ var input = document.querySelector("#input");
 var searchBtn = document.querySelector("#search");
 
 var cityName = document.querySelector("#city-date");
-// var cityDate = document.querySelector("#date");
 var iconHtml = document.querySelector("#icon");
 var temperature = document.querySelector("#temperature");
 var humidity = document.querySelector("#humidity");
@@ -40,7 +39,7 @@ function getApi(city) {
 
     console.log(city)
 
-
+    // fetch weather api to get city name
     var requestUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&appid=0cff65797cba31097493b2ee802ba069`;
 
     fetch(requestUrl)
@@ -49,7 +48,7 @@ function getApi(city) {
         })
         .then(function (data) {
             console.log(data);
-
+                //fetch other api to turn city name into coordinates to access better data field
             var requestTwoUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${data.city.coord.lat}&lon=${data.city.coord.lon}&units=imperial&appid=0cff65797cba31097493b2ee802ba069`;
 
             fetch(requestTwoUrl)
@@ -59,7 +58,7 @@ function getApi(city) {
                 .then(function (dataTwo) {
                     console.log(dataTwo);
 
-
+                        //todays weather forecast through  line 116
                     var weatherIcon = document.createElement("img");
                     weatherIcon.setAttribute("src", `http://openweathermap.org/img/wn/${dataTwo.current.weather[0].icon}@2x.png`)
 
@@ -74,7 +73,7 @@ function getApi(city) {
                     var d = new Date(dataTwo.current.dt * 1000);
 
                     city.textContent = data.city.name;
-                    date.textContent = d.toDateString("MM-dd-yyyy");
+                    date.textContent = d.toLocaleDateString();
                     temp.textContent = data.list[0].main.temp + " °F";
                     humid.textContent = data.list[0].main.humidity;
                     wind.textContent = data.list[0].wind.speed;
@@ -82,9 +81,11 @@ function getApi(city) {
 
                     cityName.innerHTML = "";
                     cityName.append(city);
-
-                    // cityName.innerHTML = "";
+                    var space = " (";
+                    var par = ")"
+                    cityName.append(space);
                     cityName.append(date);
+                    cityName.append(par);
 
                     iconHtml.innerHTML = "";
                     iconHtml.append(weatherIcon);
@@ -94,7 +95,7 @@ function getApi(city) {
 
                     humidity.innerHTML = "Humidity: ";
                     humidity.append(humid);
-                    humidity.append(" %")
+                    humidity.append("%")
 
                     windSpeed.innerHTML = "Wind Speed: ";
                     windSpeed.append(wind);
@@ -113,35 +114,36 @@ function getApi(city) {
                     } else {
                         uvBox.setAttribute("style", "background-color: red;")
                     }
-
+                    
+                    //5 days weather forecast boxes
                     var dOne = new Date(dataTwo.daily[1].dt * 1000);
                     var dateOneCr = document.createElement("h3");
                     dateOne.innerHTML = "";
-                    dateOneCr.textContent = dOne.toDateString();
+                    dateOneCr.textContent = dOne.toLocaleDateString();
                     dateOne.append(dateOneCr);
 
                     var dTwo = new Date(dataTwo.daily[2].dt * 1000);
                     var dateTwoCr = document.createElement("h3");
                     dateTwo.innerHTML = "";
-                    dateTwoCr.textContent = dTwo.toDateString();
+                    dateTwoCr.textContent = dTwo.toLocaleDateString();
                     dateTwo.append(dateTwoCr);
 
                     var dThree = new Date(dataTwo.daily[3].dt * 1000);
                     var dateThreeCr = document.createElement("h3");
                     dateThree.innerHTML = "";
-                    dateThreeCr.textContent = dThree.toDateString();
+                    dateThreeCr.textContent = dThree.toLocaleDateString();
                     dateThree.append(dateThreeCr);
 
                     var dFour = new Date(dataTwo.daily[4].dt * 1000);
                     var dateFourCr = document.createElement("h3");
                     dateFour.innerHTML = "";
-                    dateFourCr.textContent = dFour.toDateString();
+                    dateFourCr.textContent = dFour.toLocaleDateString();
                     dateFour.append(dateFourCr);
 
                     var dFive = new Date(dataTwo.daily[5].dt * 1000);
                     var dateFiveCr = document.createElement("h3");
                     dateFive.innerHTML = "";
-                    dateFiveCr.textContent = dFive.toDateString();
+                    dateFiveCr.textContent = dFive.toLocaleDateString();
                     dateFive.append(dateFiveCr);
 
                     //--------------------------
@@ -239,12 +241,12 @@ function getApi(city) {
 cityButtonList = document.querySelector("#city-list");
 
 
-
+//these cities show up as a default list on the left
 var cityArray = JSON.parse(window.localStorage.getItem("city")) || ["Paris", "Charlotte", "Africa", "Atlanta", "California", "Canada", "China", "Japan", "South Carolina", "New York"];
 
 
 searchBtn.addEventListener("click", searchClickHandler);
-
+//use the input to from search box then call api function
 function searchClickHandler(event) {
     var searchCity = input.value;
      if(searchCity === ""){
@@ -259,12 +261,12 @@ function searchClickHandler(event) {
 
 }
 
-
+//setting local storage of searched cities
 function setLocalStorage(arr) {
     localStorage.setItem("city", JSON.stringify(arr));
 }
 
-
+//rendering cities to show in the history box/ last views forecats
 function renderCities() {
 
     cityButtonList.innerHTML = "";
